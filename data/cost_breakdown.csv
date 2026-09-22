@@ -1,7 +1,7 @@
 cost,assumption,total_sek,treatment
 Avanza fund order fee,0.00 SEK/order,0.0,Deducted per fund purchase
 DNB A ongoing cost,0.20%/year,,Already reflected in NAV
-IBKR ETF commission,"0.05%, minimum EUR 1.25",2500.2869936174634,Deducted per ETF purchase
-ETF full spread estimate,0.10%,2396.2419372396807,Half-spread added to buy price
-IBKR automatic FX fee,0.03% of SEK converted,1439.9999999999998,Deducted from each monthly contribution
+IBKR ETF commission,"0.05%, minimum EUR 1.25",1087.975115407264,Deducted per ETF purchase
+ETF full spread estimate,0.10%,998.5899337566677,Half-spread added to buy price
+IBKR automatic FX fee,0.03% of SEK converted,599.9999999999999,Deducted from each monthly contribution
 iShares ongoing cost,0.20%/year,,Already reflected in ETF price/NAV
