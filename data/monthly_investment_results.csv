@@ -1,0 +1,3 @@
+route,contributions_sek,ending_value_sek,profit_sek,order_fees_sek,ibkr_commission_sek,estimated_spread_cost_sek,fx_conversion_fees_sek,units_held,ending_cash_sek
+DNB Global Indeks A via Avanza ISK,4800000.0,17111384.21907238,12311384.21907238,0.0,0.0,0.0,0.0,18876.286558166594,0.0
+iShares EUNL via IBKR ISK,4800000.0,17195510.355687067,12395510.355687067,0.0,2500.2869936174634,2396.2419372396807,1439.9999999999998,12004.0,1268.7277749257642
