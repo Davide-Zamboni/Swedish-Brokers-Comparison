@@ -1,6 +1,6 @@
-# DNB Global Indeks A vs iShares Core MSCI World
+# Swedish broker and fund comparisons
 
-Open `world_fund_comparison.ipynb` in Jupyter and run the cells from top to bottom. The project includes the downloaded daily source histories and aligned SEK series in `data/`. Set `REFRESH_DATA = True` in the download cell to request updated histories. The Länsförsäkringar Global Index NAV history is downloaded automatically when its source CSV is missing.
+Open `world_fund_comparison.ipynb` in Jupyter and run the cells from top to bottom. It includes the original single-fund comparisons and a World + Emerging Markets portfolio comparison: two iShares ETFs on IBKR versus DNB Global Indeks S and DNB Global Emerging Markets Indeks S on Avanza. The portfolio uses an editable 90/10 World/EM split by default. Set `REFRESH_DATA = True` in the download cell to request updated histories. The Länsförsäkringar Global Index NAV history is downloaded automatically when its source CSV is missing.
 
 ## Data files
 
@@ -11,6 +11,11 @@ Open `world_fund_comparison.ipynb` in Jupyter and run the cells from top to bott
 - `data/ecb_daily_eur_fx.csv` — compact ECB history in SEK and NOK per EUR.
 - `data/aligned_performance_sek.csv` — comparison series aligned to weekdays and converted to SEK.
 - `data/eunl_vs_lansforsakringar_global_index_sek.csv` — EUNL and Länsförsäkringar Global Index series aligned over their shared history and rebased for comparison.
+- `data/ishares_core_msci_em_imi_is3n_xetra_eur.csv` — IS3N Xetra daily EUR market prices for iShares Core MSCI Emerging Markets IMI (ISIN `IE00BKM4GZ66`); downloaded by the added portfolio section when missing.
+- `data/dnb_global_index_s_nav_sek.csv` and `data/dnb_global_em_index_s_nav_sek.csv` — Avanza SEK return histories rebased to an index level of 100 for the DNB S share classes; downloaded by the added section when missing.
+- `data/world_em_portfolio_performance_sek.csv` — aligned SEK portfolio performance series.
+- `data/world_em_portfolio_performance_summary.csv` — cumulative and annualized returns over the shared period.
+- `data/world_em_monthly_simulation_results.csv` and `data/world_em_monthly_trades.csv` — contribution simulation results and trade-level estimates for the two-fund portfolio.
 
 Data and cost references: [DNB Global Indeks A](https://m.dnb.no/en/saving/mutual-funds/fund-list/d/dnb-global-indeks-a-NO0010582984), [iShares fund page](https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf), [ECB SDMX API](https://data.ecb.europa.eu/help/api/data-examples), [IBKR European stock/ETF commissions](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php), and [IBKR FX commissions](https://brokerage.ibkr.com/en/pricing/commissions-spot-currencies.php).
 
@@ -20,6 +25,6 @@ The combined history starts on 24 September 2010, the first date with a DNB A NA
 
 IBKR commission and automatic FX conversion defaults are based on the published schedules linked in the notebook. The ETF spread is an editable estimate rather than a historical bid/ask series. DNB and iShares ongoing cost rates are shown for disclosure and sensitivity analysis, but are not charged a second time because the observed fund NAV / ETF price series already reflect fund-level expenses. ISK tax and sale/liquidation costs are excluded.
 
-The DNB A history is quoted in NOK. Its SEK conversion is included in performance, but the DNB route has no separate FX transaction fee by default, following the chosen assumption. Confirm whether the exact A class and fee schedule are available on your Avanza account; the annual cost and order-fee assumptions are editable.
+The original DNB A history is quoted in NOK. Its SEK conversion is included in performance, but the DNB route has no separate FX transaction fee by default, following the chosen assumption. In the new portfolio section, “DNB Global” is interpreted as DNB Global Indeks S to match the index-fund comparison; the section uses Avanza SEK price histories and models no Avanza FX fee. Both simulations share the monthly contribution, broker commission, FX, and ETF spread assumptions defined near the start of the notebook. The World/EM weights and fund-cost disclosures are set there too.
 
 Historical results are not forecasts or exact broker statements. Prices and ECB reference rates are end-of-day proxies, and the DNB and ETF portfolios are similar developed-market exposures rather than identical portfolios.
