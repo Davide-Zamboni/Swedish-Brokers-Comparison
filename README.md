@@ -2,6 +2,8 @@
 
 Open `world_fund_comparison.ipynb` in Jupyter and run the cells from top to bottom. It includes the original single-fund comparisons and a World + Emerging Markets portfolio comparison: two iShares ETFs on IBKR versus DNB Global Indeks S and DNB Global Emerging Markets Indeks S on Avanza. The portfolio uses an editable 90/10 World/EM split by default. Set `REFRESH_DATA = True` in the download cell to request updated histories. The Länsförsäkringar Global Index NAV history is downloaded automatically when its source CSV is missing.
 
+Open `brocc_vs_amf_rantefond_3y.ipynb` to compare one lump sum in Brocc Tillväxt fixed for 36 months with AMF Räntefond Lång held on an ordinary Avanza account or an Avanza ISK. The notebook shows historical rolling three-year fund outcomes after costs and estimated Swedish taxes alongside the current Brocc fixed-rate illustration. Its Brocc rate and tax settings are editable, including a switch to include or ignore the ISK tax-free allowance, and a conclusion section ranks the options from the current results. Update the rate from Brocc before relying on a new comparison.
+
 ## Data files
 
 - `data/dnb_global_indeks_a_nav_nok.csv` — DNB Global Indeks A daily NAV series in NOK (Morningstar history ID `F00000JORS`, ISIN `NO0010582984`).
@@ -28,3 +30,5 @@ IBKR commission and automatic FX conversion defaults are based on the published 
 The original DNB A history is quoted in NOK. Its SEK conversion is included in performance, but the DNB route has no separate FX transaction fee by default, following the chosen assumption. In the new portfolio section, “DNB Global” is interpreted as DNB Global Indeks S to match the index-fund comparison; the section uses Avanza SEK price histories and models no Avanza FX fee. Both simulations share the monthly contribution, broker commission, FX, and ETF spread assumptions defined near the start of the notebook. The World/EM weights and fund-cost disclosures are set there too.
 
 Historical results are not forecasts or exact broker statements. Prices and ECB reference rates are end-of-day proxies, and the DNB and ETF portfolios are similar developed-market exposures rather than identical portfolios.
+
+Open `moank_flex_plus_vs_amf_rantefond_kort_3y.ipynb` to compare Moank Flex Plus at its current variable rate (held constant only as a scenario) with AMF Räntefond Kort on an ordinary Avanza account or ISK. It includes historical rolling three-year fund outcomes after fees and estimated taxes, an ISK tax-free-allowance switch, and dynamic conclusions. The Moank rate can change at any time; refresh it in the inputs before relying on the comparison.
