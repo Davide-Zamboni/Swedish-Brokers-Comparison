@@ -1,0 +1,5 @@
+scenario,period,start_date,end_date,ending_value_after_product_costs_sek,average_annual_return_pct,source_date
+Stress,Extreme market circumstances; dates not specified in KID,,,87200,-4.46,2026-06-01
+Unfavourable,2019-09 to 2022-09,2019-09-01,2022-09-01,90300,-3.34,2026-06-01
+Moderate,2018-09 to 2021-09,2018-09-01,2021-09-01,101600,0.53,2026-06-01
+Favourable,2023-02 to 2026-02,2023-02-01,2026-02-01,113200,4.22,2026-06-01
