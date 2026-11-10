@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISK or Ordinary Account? — Swedish Investing, Explained</title>
+<style>
+:root{--ink:#f4f2ec;--muted:#aab2c4;--bg:#0d1322;--panel:#151e31;--line:#29344c;--teal:#73e0c3;--gold:#f2bd62;--red:#ff827d;--blue:#8cb8ff;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#080c15;color:var(--ink);font-family:var(--font)}body{display:grid;place-items:center;overflow:hidden}
+.deck{width:min(100vw,177.78vh);height:min(100vh,56.25vw);aspect-ratio:16/9;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 25px 90px #0008}
+.slide{position:absolute;inset:0;display:none;padding:5.1% 6.3% 6.2%;background:radial-gradient(ellipse at 90% 8%,#1b2942 0%,transparent 44%),var(--bg);overflow:hidden}.slide.active{display:flex;flex-direction:column}
+.slide::after{content:"";position:absolute;inset:auto -12% -50% 40%;height:50%;background:radial-gradient(ellipse,#163a3a33,transparent 70%);pointer-events:none}
+.topline{display:flex;align-items:center;gap:.6rem;color:var(--teal);font-size:clamp(10px,.85vw,15px);font-weight:750;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.3%}
+.dot{width:.52em;height:.52em;border-radius:50%;background:var(--teal);display:inline-block}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(35px,5.3vw,82px);line-height:.99;letter-spacing:-.045em;max-width:1000px}h2{font-size:clamp(27px,3.2vw,50px);line-height:1.04;letter-spacing:-.035em;margin-bottom:1.2%}h3{font-size:clamp(16px,1.45vw,22px);line-height:1.12}.dek{font-size:clamp(16px,1.65vw,25px);line-height:1.38;color:#c6cede;max-width:900px;margin-top:2%}.small{font-size:clamp(11px,.88vw,14px);line-height:1.4;color:var(--muted)}.source{font-size:clamp(9px,.72vw,12px);color:#9ba4b7;line-height:1.25;margin-top:auto;padding-top:.8rem;position:relative;z-index:1}.accent{color:var(--teal)}.gold{color:var(--gold)}.red{color:var(--red)}
+.cover{justify-content:center}.cover .topline{margin-bottom:2.2%}.cover h1{max-width:1000px}.cover .dek{max-width:790px}.cover .pill{display:inline-flex;margin-top:3.4%;padding:.55rem .9rem;border:1px solid #40506b;border-radius:100px;color:#d3d9e4;font-size:clamp(11px,.95vw,15px);letter-spacing:.02em}.cover .meta{margin-top:2rem;color:#9ca7ba;font-size:clamp(10px,.85vw,14px)}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:3%;height:100%;min-height:0}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2%;height:100%;min-height:0}.taxcard{border-top:3px solid var(--teal);padding:1.2rem 1.2rem 1rem 0;display:flex;flex-direction:column;gap:.65rem}.taxcard.af{border-color:var(--gold)}.taxcard h3{font-size:clamp(19px,1.8vw,28px)}.taxcard p{font-size:clamp(13px,1.13vw,17px);line-height:1.38;color:#c5ccda}.taxcard strong{color:var(--ink)}
+.bigstat{font-size:clamp(39px,5vw,76px);line-height:.98;font-weight:780;letter-spacing:-.045em}.statlabel{font-size:clamp(12px,1vw,16px);color:#bcc5d5;line-height:1.3}.rule{height:1px;background:var(--line);margin:.7rem 0}.example{display:grid;grid-template-columns:1fr 1fr;gap:2.5%;align-items:center;flex:1}.math{padding:1.15rem 1.35rem;background:#141d2e;border-left:3px solid var(--teal);font-size:clamp(14px,1.24vw,19px);line-height:1.65;color:#dce2ec}.math .eq{color:var(--teal);font-weight:750}.callout{padding:1.1rem 1.3rem;border:1px solid #35415a;border-radius:15px;background:#111a2a;font-size:clamp(13px,1.14vw,17px);line-height:1.4;color:#d2d9e5}
+.chartwrap{position:relative;min-height:0;flex:1;width:100%;margin-top:1%;}canvas{width:100%;height:100%;display:block}.chartcaption{display:flex;justify-content:space-between;gap:1rem;color:var(--muted);font-size:clamp(10px,.82vw,13px);margin:.35rem 0 .5rem}.legend{display:flex;gap:1rem;flex-wrap:wrap}.key{display:inline-flex;align-items:center;gap:.4rem}.swatch{width:12px;height:3px;background:var(--teal);display:inline-block}.swatch.gold{background:var(--gold)}
+.metrics{display:flex;gap:2.5%;margin:1.1% 0}.metric{display:flex;flex-direction:column;gap:.25rem}.metric b{font-size:clamp(20px,2vw,31px);letter-spacing:-.03em}.metric span{font-size:clamp(10px,.84vw,13px);color:var(--muted)}
+.controls{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem 1.4rem;padding:.8rem 0 .45rem}.control label{display:flex;justify-content:space-between;gap:.5rem;color:#bdc6d6;font-size:clamp(10px,.85vw,13px);margin-bottom:.4rem}.control output{color:var(--teal);font-weight:700}.control input{width:100%;accent-color:var(--teal)}.resultline{display:flex;gap:2rem;align-items:baseline;margin:.5rem 0}.resultline b{font-size:clamp(24px,2.2vw,34px)}.resultline .gap{font-size:clamp(17px,1.6vw,25px);color:var(--teal)}
+.reddit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2%;flex:1;align-items:stretch}.belief{padding:1rem 1rem 1rem 0;border-top:2px solid var(--blue)}.belief:nth-child(2){border-color:var(--gold)}.belief:nth-child(3){border-color:var(--teal)}.belief h3{margin-bottom:.65rem}.belief p{font-size:clamp(12px,1.06vw,16px);line-height:1.42;color:#c7cfdd}.belief a{display:block;margin-top:.8rem;font-size:clamp(10px,.78vw,12px);color:#a8c9ff;text-decoration:none}.belief a:hover{text-decoration:underline}
+.yearbars{display:flex;align-items:end;gap:.3rem;height:100px;margin:.45rem 0 .8rem;border-bottom:1px solid #40506b}.yb{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:3px}.yb i{display:block;width:72%;min-height:10px;background:var(--teal);border-radius:4px 4px 0 0}.yb b{font-size:clamp(8px,.66vw,10px);color:#d5e0e9;font-weight:600}.yb small{font-size:clamp(8px,.65vw,10px);color:var(--muted);padding-bottom:4px}.laneTotal{display:flex;align-items:baseline;gap:.7rem}.laneTotal b{font-size:clamp(21px,2vw,30px);color:var(--teal)}.laneTotal span{font-size:clamp(10px,.85vw,13px);color:#c2cbd9}.fundstrip{display:flex;flex-direction:column;gap:.25rem;padding:.65rem .8rem;border:1px solid #394560;border-radius:10px;margin:.45rem 0 .6rem}.fundstrip span,.saleevent span{font-size:clamp(10px,.82vw,13px);color:#c4ccda}.fundstrip strong{font-size:clamp(17px,1.65vw,25px);color:var(--gold)}.fundstrip small,.saleevent small{font-size:clamp(9px,.75vw,12px);color:var(--muted)}.saleevent{display:flex;flex-direction:column;gap:.22rem;padding:.7rem .8rem;border-left:4px solid var(--gold);background:#2a241b;border-radius:0 10px 10px 0;margin:.55rem 0}.saleevent strong{font-size:clamp(27px,3vw,45px);color:var(--gold);letter-spacing:-.04em}.takeaway{font-size:clamp(23px,2.7vw,42px);line-height:1.15;letter-spacing:-.025em;max-width:980px;margin:1rem 0 1.4rem}.takeaway span{color:var(--teal)}.closinglist{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 2.5%;font-size:clamp(13px,1.1vw,17px);line-height:1.35;color:#c8cfdd}.closinglist div{border-top:1px solid var(--line);padding-top:.6rem}
+.note{display:none;position:absolute;left:6.3%;right:6.3%;bottom:6.2%;padding:.75rem 1rem;background:#f5f0df;color:#1a2230;border-radius:10px;font-size:clamp(11px,.92vw,14px);line-height:1.35;z-index:4;box-shadow:0 8px 30px #0006}.notes-on .slide.active .note{display:block}
+.nav{position:absolute;left:0;right:0;bottom:0;height:5.4%;min-height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 2.2%;background:#090e18e8;border-top:1px solid #ffffff10;z-index:5}.navgroup{display:flex;align-items:center;gap:.65rem}.nav button{background:#182338;border:1px solid #33415d;color:var(--ink);border-radius:8px;padding:.42rem .7rem;font:inherit;font-size:clamp(10px,.82vw,13px);cursor:pointer}.nav button:hover{border-color:var(--teal);color:var(--teal)}.counter{font-size:clamp(10px,.85vw,13px);color:#aeb7c7;min-width:4rem;text-align:center}.progress{position:absolute;left:0;top:0;height:2px;background:var(--teal);width:0;transition:width .25s}
+.sources-list{font-size:clamp(10px,.81vw,13px);line-height:1.52;color:#bec6d5;display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem}.sources-list a{color:#a8c9ff;text-decoration:none;overflow-wrap:anywhere}.sources-list a:hover{text-decoration:underline}.footnote{font-size:clamp(9px,.72vw,11px);color:#8f9aae;line-height:1.35}
+@media(max-width:900px){.slide{padding:4.4% 5% 7%}.controls{gap:.5rem}.reddit{gap:1.3%}.taxcard{padding-right:.4rem}.nav{padding:0 1%}}
+@media(max-width:650px){.cols2,.cols3,.example,.reddit,.closinglist{grid-template-columns:1fr}.slide{padding:4% 5% 8%}.controls{grid-template-columns:repeat(2,1fr)}.taxcard{padding:.4rem 0;border-top-width:2px}.taxcard p{font-size:11px}.reddit{overflow:auto}.belief{padding:.45rem 0}.chartwrap{min-height:120px}.sources-list{grid-template-columns:1fr}.nav{height:8%;min-height:36px}.slide{padding-bottom:9%}}
+@media print{html,body{height:auto;overflow:visible;background:white}.deck{width:100vw;height:auto;aspect-ratio:auto;overflow:visible;box-shadow:none}.slide{position:relative;display:flex!important;width:100vw;height:56.25vw;break-after:page;page-break-after:always}.nav,.note{display:none!important}}
+</style>
+</head>
+<body>
+<main class="deck" aria-label="ISK and ordinary investment account presentation">
+<div class="progress" id="progress"></div>
+<section class="slide cover active" data-title="ISK or ordinary account">
+  <div class="topline"><span class="dot"></span> Swedish investing, explained</div>
+  <h1>ISK or ordinary account?<br><span class="accent">The tax depends on the path.</span></h1>
+  <p class="dek">A visual comparison using the same global fund, the same SEK returns, and different Swedish tax rules.</p>
+  <div class="pill">SWDA / EUNL · Historical data through 2025 · 2026 tax settings</div>
+  <aside class="note">Open: “If you invest in the same fund, does the account wrapper change your result? Yes. One taxes a yearly estimate of your balance. The other taxes distributions and realized gains.” Say clearly that this is a model comparison, not a recommendation for every person.</aside>
+</section>
+<section class="slide" data-title="Two tax clocks">
+  <div class="topline"><span class="dot"></span> 01 · The tax rules</div>
+  <h2>Two accounts. Two tax clocks.</h2>
+  <div class="cols2">
+    <div class="taxcard">
+      <h3><span class="accent">ISK</span> — tax on account value</h3>
+      <p><strong>Tax each year</strong> on a base calculated from quarter values and deposits.</p>
+      <p>In 2026: <strong>1.065%</strong> of the capital base above your shared SEK 300,000 allowance.</p>
+      <p>That tax is due even in a loss year. Sales inside the ISK do not trigger capital-gains tax.</p>
+      <div class="rule"></div><p class="small">The SEK 300,000 allowance is shared across ISK, capital insurance and PEPP.</p>
+    </div>
+    <div class="taxcard af">
+      <h3><span class="gold">Ordinary account</span> — tax when income is recognized</h3>
+      <p><strong>30% tax</strong> on dividends and realized gains.</p>
+      <p>Fund units also pay <strong>0.12% yearly</strong> on their value at the start of the year.</p>
+      <p>Unrealized gains can wait until sale. Loss relief depends on your tax situation.</p>
+      <div class="rule"></div><p class="small">A listed fund may qualify for the optional 20% cost-basis method when it has risen more than 400%.</p>
+    </div>
+  </div>
+  <div class="source">Sources: Skatteverket, ISK tax and 2026 allowance; fund-unit and capital-gains rules. Full links on the final slide.</div>
+  <aside class="note">Use the phrase “tax clocks.” ISK charges a recurring tax tied to account value. A normal account defers much of the tax until a sale, but fund units have a small annual deemed-income tax. Do not say ordinary account is tax-free until sale: dividends and the annual fund tax still apply.</aside>
+</section>
+<section class="slide" data-title="Annual tax or tax at sale">
+  <div class="topline"><span class="dot"></span> Tax timing · A ten-year illustration</div>
+  <h2>One tax arrives each year. The other waits for the sale.</h2>
+  <p class="small">Same fund and return path in both accounts: SEK 500,000 invested, 7% annual return, about 10 years, no additions or cash distributions.</p>
+  <div class="cols2" style="margin-top:1.2%;flex:1;min-height:0">
+    <div class="taxcard">
+      <h3><span class="accent">ISK</span> · tax collected along the way</h3>
+      <p class="small">Annual tax in the model (SEK, by tax year)</p>
+      <div class="yearbars" aria-label="ISK annual taxes over ten years">
+        <div class="yb"><i style="height:35%"></i><b>2.2k</b><small>26</small></div><div class="yb"><i style="height:41%"></i><b>2.6k</b><small>27</small></div><div class="yb"><i style="height:47%"></i><b>3.0k</b><small>28</small></div><div class="yb"><i style="height:53%"></i><b>3.4k</b><small>29</small></div><div class="yb"><i style="height:60%"></i><b>3.8k</b><small>30</small></div><div class="yb"><i style="height:67%"></i><b>4.2k</b><small>31</small></div><div class="yb"><i style="height:75%"></i><b>4.7k</b><small>32</small></div><div class="yb"><i style="height:83%"></i><b>5.2k</b><small>33</small></div><div class="yb"><i style="height:91%"></i><b>5.7k</b><small>34</small></div><div class="yb"><i style="height:100%"></i><b>6.3k</b><small>35</small></div>
+      </div>
+      <div class="laneTotal"><b>SEK 41,172</b><span>total ISK tax over the modeled period</span></div>
+      <div class="rule"></div><p class="small">After-tax value at the end: <strong>SEK 924,399</strong></p>
+    </div>
+    <div class="taxcard af">
+      <h3><span class="gold">Ordinary account</span> · most gain tax waits</h3>
+      <p class="small">Small annual fund tax, then capital-gains tax when sold</p>
+      <div class="fundstrip"><span>Annual fund tax</span><strong>SEK 638 → 1,086</strong><small>about SEK 7,605 total</small></div>
+      <div class="saleevent"><span>At sale, year 10</span><strong>SEK 141,761</strong><small>capital-gains tax</small></div>
+      <p class="small">The model also includes about SEK 875 of gain tax from selling units to pay the annual fund tax.</p>
+      <div class="rule"></div><p class="small">After-tax value at the end: <strong>SEK 825,213</strong></p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:.7rem">Under these assumptions, ISK ends about <b>SEK 99,186 higher</b>. The example holds the 2026 ISK rate and allowance constant across the period.</div>
+  <div class="source">Illustration follows the notebook’s annual tax timing and cost-basis assumptions. Future ISK rates can change.</div>
+  <aside class="note">Narration: “The ordinary account is not tax-free while you wait: it pays a small annual fund tax. But the much larger capital-gains tax is deferred until the sale. ISK pays each year based on account value. In this ten-tax-year example, ISK tax totals about SEK 41,000; the ordinary account has about SEK 7,600 of fund tax and SEK 141,800 of tax at sale, plus tax from selling units to fund the annual bill. With the 2026 rules frozen, ISK finishes around SEK 99,000 higher.”</aside>
+</section>
+<section class="slide" data-title="A 2026 tax example">
+  <div class="topline"><span class="dot"></span> 02 · A simple example</div>
+  <h2>What does the 2026 ISK rate mean in kronor?</h2>
+  <div class="example">
+    <div>
+      <div class="math">
+        Capital base <b>SEK 400,000</b><br>
+        Taxable after allowance <b>SEK 100,000</b><br>
+        100,000 × 3.55% × 30%<br>
+        <span class="eq">2026 ISK tax: SEK 1,065</span>
+      </div>
+      <p class="small" style="margin-top:.7rem">Assumes the full allowance is available.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="callout"><span class="accent">Below the allowance:</span> no ISK tax on this base in 2026, if the shared allowance is unused.</div>
+      <p class="small">That ISK tax is based on the account’s capital base, not its profit.</p>
+    </div>
+  </div>
+  <div class="source">2026 ISK rate: 3.55% deemed income; effective tax 1.065% above the SEK 300,000 allowance. Fund tax: 0.12% of opening value.</div>
+  <aside class="note">Walk through the example slowly. Clarify that SEK 400,000 is the tax capital base, not necessarily the account balance on the last day of the year. Real ISK base calculation includes opening-quarter values and deposits. The ordinary fund tax calculation is 400,000 × 0.4% × 30% = 480.</aside>
+</section>
+<section class="slide" data-title="How the ordinary account works">
+  <div class="topline"><span class="dot"></span> 03 · The ordinary account</div>
+  <h2>Tax deferral has value. So does tax on returns.</h2>
+  <div class="cols3">
+    <div class="taxcard af">
+      <div class="bigstat gold">30%</div><h3>When you sell at a gain</h3>
+      <p>The tax is normally on the realized gain, not the full sale price. Deferring a sale leaves more money invested for longer.</p>
+    </div>
+    <div class="taxcard af">
+      <div class="bigstat gold">0.12%</div><h3>Every year for fund units</h3>
+      <p>0.4% is treated as income and taxed at 30%, based on fund value at the start of the year.</p>
+    </div>
+    <div class="taxcard af">
+      <div class="bigstat gold">20%</div><h3>Optional cost basis</h3>
+      <p>For eligible listed fund units, cost basis can be set to 20% of the sale proceeds. This can help when the fund’s value has <strong>more than quintupled (grown by more than 400%)</strong> since purchase.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:1rem">A loss may be deductible. This presentation models a simplified 21% value for losses; actual tax relief depends on offsetting income and deficit rules.</div>
+  <div class="source">Sources: Skatteverket fund rules, cost-basis method and capital-loss rules. Individual tax outcomes can differ.</div>
+  <aside class="note">A useful YouTube point: “30% of a gain” is not 30% of the whole account. Also note the standard cost basis method becomes more favorable when the investment has risen more than 400%. Our model compares actual average cost against the 20% method at sale.</aside>
+</section>
+<section class="slide" data-title="The SWDA SEK history">
+  <div class="topline"><span class="dot"></span> 04 · The data</div>
+  <h2>One global fund, converted into SEK</h2>
+  <div class="metrics">
+    <div class="metric"><b>2012–2025</b><span>completed years in the backtest</span></div>
+    <div class="metric"><b>6.3×</b><span>price index from first to last month-end</span></div>
+    <div class="metric"><b>168</b><span>monthly observations</span></div>
+  </div>
+  <div class="chartcaption"><span>Rebased SEK price, January 2012 = 100</span><span class="legend"><span class="key"><i class="swatch"></i> SWDA / EUNL share class</span></span></div>
+  <div class="chartwrap"><canvas id="historyChart" aria-label="Historical SWDA price indexed to 100 in SEK"></canvas></div>
+  <div class="source">Same ISIN, IE00B4L5Y983: SWDA on London, EUNL on Xetra. SEK conversion uses the existing notebook’s ECB reference-rate series. Last source observation: 21 Sep 2026; historical test ends Dec 2025.</div>
+  <aside class="note">Explain that the notebook has the EUNL ticker for the Xetra listing, but it is the same share class as SWDA. It is accumulating, so fund dividends are reflected inside the value; the investor does not normally receive a cash dividend. We use 2012–2025 in the historic tax backtest so only complete years are included.</aside>
+</section>
+<section class="slide" data-title="Historical account comparison">
+  <div class="topline"><span class="dot"></span> 05 · Historical replay</div>
+  <h2>ISK won in <span class="accent">96.6%</span> of tested historical cases</h2>
+  <div class="metrics">
+    <div class="metric"><b>2,055 / 2,128</b><span>ISK wins across tested balances and horizons</span></div>
+    <div class="metric"><b>SEK 300,000</b><span>example lump sum, no monthly additions</span></div>
+  </div>
+  <div class="chartcaption"><span>Share of rolling start dates where ISK ended ahead</span><span class="small">300,000 SEK starting amount</span></div>
+  <div class="chartwrap"><canvas id="historyWinChart" aria-label="Historical ISK win percentage by holding period"></canvas></div>
+  <div class="source">158 one-year windows: 88.6% ISK wins, median difference +SEK 11,793. All available 3, 5, 10 and 12-year windows also favored ISK in this sample. Windows overlap; they are not independent trials.</div>
+  <aside class="note">Be precise: 96.6% is across 2,128 modeled combinations of start date, balance and horizon. It is not a 96.6% chance ISK will win in the future. The dataset is one strong global-equity path; the windows overlap. For SEK 300,000, 3–12 year samples all favored ISK, but that result is sample-specific.</aside>
+</section>
+<section class="slide" data-title="Try a future scenario">
+  <div class="topline"><span class="dot"></span> 06 · Change the assumptions</div>
+  <h2>Try a forward scenario</h2>
+  <div class="controls">
+    <div class="control"><label>Initial investment <output id="initialOut"></output></label><input id="initial" type="range" min="0" max="1000000" step="25000" value="300000"></div>
+    <div class="control"><label>Monthly contribution <output id="monthlyOut"></output></label><input id="monthly" type="range" min="0" max="20000" step="1000" value="5000"></div>
+    <div class="control"><label>Annual total return <output id="returnOut"></output></label><input id="return" type="range" min="-15" max="20" step="0.5" value="7"></div>
+    <div class="control"><label>Holding period <output id="yearsOut"></output></label><input id="years" type="range" min="1" max="30" step="1" value="10"></div>
+    <div class="control"><label>Distribution yield <output id="yieldOut"></output></label><input id="yield" type="range" min="0" max="8" step="0.5" value="0"></div>
+  </div>
+  <div class="resultline"><b id="winner">—</b><span class="gap" id="gapValue">—</span></div>
+  <p class="small" id="scenarioSummary">—</p>
+  <div class="chartcaption"><span>After-tax ending value at each possible exit year</span><span class="legend"><span class="key"><i class="swatch"></i> ISK</span><span class="key"><i class="swatch gold"></i> Ordinary account</span></span></div>
+  <div class="chartwrap"><canvas id="scenarioChart" aria-label="Interactive after-tax wealth projections"></canvas></div>
+  <div class="source">Forward assumptions: 2026 ISK rate 3.55%, SEK 300,000 allowance unchanged for every projected year; taxes withdrawn from the portfolio at year-end. These are scenarios, not forecasts.</div>
+  <aside class="note">Default: SEK 300,000 initial, SEK 5,000/month, 7% annual total return, 10 years, no cash distributions. This is the same input as the notebook’s default. The 7% path ends near SEK 1.38m in ISK and SEK 1.27m in the ordinary account. Explain the allowance assumptions and that the model holds future law constant.</aside>
+</section>
+<section class="slide" data-title="Return and horizon heatmap">
+  <div class="topline"><span class="dot"></span> 07 · Scenario map</div>
+  <h2>Where does the advantage change?</h2>
+  <p class="small">Each cell is after-tax wealth in ISK minus ordinary account for the selected investment size, monthly saving and dividend yield. Click a cell to inspect it on the previous slide.</p>
+  <p class="small accent" id="gridWinSummary">—</p>
+  <div class="chartcaption"><span>Green = ISK ends higher · red = ordinary account ends higher</span><span id="heatInputs" class="small"></span></div>
+  <div class="chartwrap"><canvas id="heatmap" aria-label="Interactive heatmap showing which account wins by return and holding period"></canvas></div>
+  <div class="source">Constant SEK return cases. The ordinary account uses annual fund tax, dividend tax if a yield is entered, the better eligible cost-basis method, and the modeled final sale tax/relief.</div>
+  <aside class="note">Point out that low or negative returns can favor the ordinary account because ISK tax continues in weak years. Higher returns and distributions tend to favor ISK in this model. Click any cell to send those inputs to the previous scenario slide.</aside>
+</section>
+<section class="slide" data-title="Planning to leave Sweden">
+  <div class="topline"><span class="dot"></span> 08 · Moving abroad</div>
+  <h2>What if you plan to leave Sweden?</h2>
+  <p class="small">A move changes your tax residence. Swedish rules may continue to matter, and your destination’s rules depend on where you go.</p>
+  <div class="cols2" style="margin-top:1.2%;flex:1;min-height:0">
+    <div class="taxcard">
+      <h3><span class="accent">Sweden</span> · after departure</h3>
+      <p>Close ties can mean you remain fully tax liable and report worldwide income after moving.</p>
+      <p>If you become limited tax liable, Swedish ISK standard-rate income and gains from fund-unit sales generally are not declared.</p>
+      <p>The 10-year rule covers certain shares, not fund units. Some deferred share-exchange gains can be taxed when leaving the EEA.</p>
+    </div>
+    <div class="taxcard af">
+      <h3><span class="gold">Your new country</span> · after arrival</h3>
+      <p>Check how it taxes fund income, distributions and gains when you eventually sell.</p>
+      <p>Some countries also tax investment wealth or treat accumulating funds differently.</p>
+      <p>Ask your broker whether you can keep the account after becoming a non-resident.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:.7rem">The next slide models the years up to your move under Swedish rules; it keeps ordinary-account gains unrealized at the move date.</div>
+  <div class="source">Sources: Skatteverket on moving, close ties and capital income while living abroad. Links on the final slide.</div>
+  <aside class="note">Say: “There is no single tax result for everyone who leaves Sweden. First determine whether Sweden still treats you as fully taxable. If you become limited tax liable, Swedish ISK standard-rate income and fund-unit gains generally are not declared, though specific share rules and deferred share-exchange gains matter. Then check the tax rules and provider terms in the country where you will live.”</aside>
+</section>
+<section class="slide" data-title="Move without selling">
+  <div class="topline"><span class="dot"></span> 09 · At the move date</div>
+  <h2>Keep the ordinary account invested</h2>
+  <p class="small">Assumes Swedish tax rules apply until the move. There is no full sale at the horizon, so tax on the remaining unrealized gain is deferred. Destination-country tax is excluded.</p>
+  <div class="controls">
+    <div class="control"><label>Initial investment <output id="moveInitialOut"></output></label><input id="moveInitial" type="range" min="0" max="1000000" step="25000" value="300000"></div>
+    <div class="control"><label>Monthly contribution <output id="moveMonthlyOut"></output></label><input id="moveMonthly" type="range" min="0" max="20000" step="1000" value="5000"></div>
+    <div class="control"><label>Annual total return <output id="moveReturnOut"></output></label><input id="moveReturn" type="range" min="-15" max="20" step="0.5" value="7"></div>
+    <div class="control"><label>Years until move <output id="moveYearsOut"></output></label><input id="moveYears" type="range" min="1" max="30" step="1" value="10"></div>
+    <div class="control"><label>Distribution yield <output id="moveYieldOut"></output></label><input id="moveYield" type="range" min="0" max="8" step="0.5" value="0"></div>
+  </div>
+  <div class="resultline"><b id="moveWinner">—</b><span class="gap" id="moveGap">—</span></div>
+  <p class="small" id="moveSummary">—</p>
+  <div class="chartcaption"><span>Account value at the move date · no full sale</span><span class="legend"><span class="key"><i class="swatch"></i> ISK</span><span class="key"><i class="swatch gold"></i> Ordinary account, no end sale</span></span></div>
+  <div class="chartwrap"><canvas id="moveChart" aria-label="Interactive account values at a planned move date with no ordinary-account liquidation"></canvas></div>
+  <div class="source">Assumes 2026 ISK settings stay constant. Annual fund/dividend taxes are included; tax bills are withdrawn from the portfolio and can require small unit sales. No full sale tax or destination-country tax is included.</div>
+  <aside class="note">Explain that this is a value-at-move comparison, not a post-move tax forecast. The ordinary account pays annual fund-unit tax and taxes distributions; the model funds these bills from the portfolio, so small unit sales may occur. It does not sell the whole ordinary account at the move date, leaving the remaining gain tax deferred. Destination-country taxes are outside the model.</aside>
+</section>
+<section class="slide" data-title="Conclusions and caveats">
+  <div class="topline"><span class="dot"></span> 10 · Takeaways</div>
+  <h2>The answer changes with the return path</h2>
+  <p class="takeaway">In this SWDA sample, <span>ISK usually finished higher</span>. Under low or negative returns, the ordinary account can win.</p>
+  <div class="closinglist">
+    <div><b>Think about expected return.</b><br>ISK charges tax on the account base even when the investment falls.</div>
+    <div><b>Think about the selling date.</b><br>An ordinary account can defer gain tax; the plan for withdrawals matters.</div>
+    <div><b>Think about the 2026 allowance.</b><br>The SEK 300,000 benefit is shared across ISK, KF and PEPP.</div>
+    <div><b>Think about existing unrealized gains.</b><br>Transferring a holding into ISK can trigger a taxable sale.</div>
+  </div>
+  <div class="source">Model boundaries: one accumulating global equity fund; 2026 future tax settings held constant; full allowance assumed available; transaction costs and individualized loss offsets excluded. Cross-border taxes are not modeled. Not personal tax advice.</div>
+  <aside class="note">End with: “For new global-equity savings under these assumptions, ISK looked strong in the historical replay. That does not make it the universal winner. If returns are weak, the allowance is already used, you already have large unrealized gains, or you move abroad, check your own tax position.”</aside>
+</section>
+<section class="slide" data-title="Method and sources">
+  <div class="topline"><span class="dot"></span> 11 · Method & sources</div>
+  <h2>What the model includes</h2>
+  <div class="sources-list">
+    <div><b>Price history</b><br>Notebook’s EUNL close × ECB EUR/SEK reference rate; monthly month-end observations. Data through 21 Sep 2026; historical tax windows end Dec 2025.</div>
+    <div><b>ISK</b><br>Quarter-opening account values plus deposits, divided by four; actual annual schablon rates through 2025; 2026 settings for forward scenarios.</div>
+    <div><b>Ordinary fund account</b><br>30% on dividends and realized positive gain; 0.12% annual fund-unit tax; 20% cost basis where lower tax; simplified loss value.</div>
+    <div><b>iShares share class</b><br>SWDA and EUNL are listings of ISIN IE00B4L5Y983. The share class accumulates income; default investor-level cash dividend yield is 0%.</div>
+  </div>
+  <div class="rule"></div>
+  <div class="sources-list">
+    <div><a href="https://www.skatteverket.se/privat/skatter/vardepapperochkryptotillgangar/investeringssparkontoisk.4.5fc8c94513259a4ba1d800037851.html" target="_blank" rel="noopener">Skatteverket · ISK tax and 2026 threshold ↗</a></div>
+    <div><a href="https://www.skatteverket.se/privat/skatter/vardepapper/omovrigavardepapper/fonder.4.19b9f599116a9e8ef36800010782.html" target="_blank" rel="noopener">Skatteverket · fund tax and fund cost basis ↗</a></div>
+    <div><a href="https://www.skatteverket.se/privat/etjansterochblanketter/svarpavanligafragor/vardepapper/privatvardepapperfaq/jagharsaltmarknadsnoteradeaktiernarochhurskajagdeklareraforsaljningen.5.18e1b10334ebe8bc8000119343.html" target="_blank" rel="noopener">Skatteverket · gains and losses ↗</a></div>
+    <div><a href="https://www.ishares.com/uk/individual/en/products/251882/ishares-msci-world-ucits-etf-acc-fund" target="_blank" rel="noopener">iShares · SWDA accumulating share class ↗</a></div>
+    <div><a href="https://www.skatteverket.se/servicelankar/otherlanguages/englishengelska/individualsandemployees/movingfromsweden.4.7be5268414bea064694c58f.html" target="_blank" rel="noopener">Skatteverket · moving from Sweden and close ties ↗</a></div>
+    <div><a href="https://www.skatteverket.se/servicelankar/otherlanguages/inenglishengelska/individualsandemployees/declaringtaxesforindividuals/owningrealpropertyinswedenlivingabroad.4.60e47fb015c2f6964e510ab.html" target="_blank" rel="noopener">Skatteverket · ISK, fund sales and tax deferrals abroad ↗</a></div>
+  </div>
+  <div class="source">Source notebook: world_fund_comparison.ipynb · Historical conclusion is descriptive, not a forecast. Relocation rules and destination-country tax are not modeled.</div>
+  <aside class="note">On the last slide, mention the model’s largest limitations: same fund in both accounts; one realized market path; future ISK rate fixed at 2026; full allowance available; distributions set to zero for accumulating SWDA; losses and personal tax interactions simplified. Encourage checking current Skatteverket rules for a personal decision.</aside>
+</section>
+<nav class="nav" aria-label="Slide controls">
+  <div class="navgroup"><button id="prev" aria-label="Previous slide">← Previous</button><button id="next" aria-label="Next slide">Next →</button><span class="counter" id="counter">1 / 13</span></div>
+  <div class="navgroup"><button id="notesToggle">Presenter notes</button><button id="fullscreen">Full screen</button></div>
+</nav>
+</main>
+<script>
+const historicalData=[{"date":"2012-01","index":100.0},{"date":"2012-02","index":101.90251558581602},{"date":"2012-03","index":103.80139897874565},{"date":"2012-04","index":104.00770496483452},{"date":"2012-05","index":102.09780070513918},{"date":"2012-06","index":102.39993879520408},{"date":"2012-07","index":102.09789810976397},{"date":"2012-08","index":102.21019477767304},{"date":"2012-09","index":103.64704911246805},{"date":"2012-10","index":103.87686276672392},{"date":"2012-11","index":105.75976565048997},{"date":"2012-12","index":104.5534422009369},{"date":"2013-01","index":108.18120517723338},{"date":"2013-02","index":110.04276928186043},{"date":"2013-03","index":113.45475153180277},{"date":"2013-04","index":116.39033525630254},{"date":"2013-05","index":120.07556136238509},{"date":"2013-06","index":118.91069387886562},{"date":"2013-07","index":121.89429452372056},{"date":"2013-08","index":119.63874964919681},{"date":"2013-09","index":121.61665397883053},{"date":"2013-10","index":128.3694660513426},{"date":"2013-11","index":131.80948930304353},{"date":"2013-12","index":131.5547215482693},{"date":"2014-01","index":129.35842147713709},{"date":"2014-02","index":133.34718134885142},{"date":"2014-03","index":134.7902381094524},{"date":"2014-04","index":137.1306178640068},{"date":"2014-05","index":142.39080954182904},{"date":"2014-06","index":146.06152406230268},{"date":"2014-07","index":148.15328861756737},{"date":"2014-08","index":152.62743949718777},{"date":"2014-09","index":155.1168469166453},{"date":"2014-10","index":159.0325736512994},{"date":"2014-11","index":163.56239900735946},{"date":"2014-12","index":167.907931932308},{"date":"2015-01","index":175.872232919004},{"date":"2015-02","index":187.59019008678877},{"date":"2015-03","index":191.23040495843074},{"date":"2015-04","index":188.66828677062816},{"date":"2015-05","index":192.28557894636634},{"date":"2015-06","index":183.06091815164643},{"date":"2015-07","index":193.59012664466283},{"date":"2015-08","index":178.5895467989183},{"date":"2015-09","index":170.43560812971253},{"date":"2015-10","index":186.61651089824093},{"date":"2015-11","index":190.19122088810738},{"date":"2015-12","index":182.0278370118703},{"date":"2016-01","index":172.61101441806116},{"date":"2016-02","index":172.80330504784553},{"date":"2016-03","index":172.93463429967855},{"date":"2016-04","index":172.16390747693055},{"date":"2016-05","index":181.76391756268737},{"date":"2016-06","index":182.3081152891198},{"date":"2016-07","index":192.20232755591334},{"date":"2016-08","index":191.6653629809208},{"date":"2016-09","index":193.98269587187212},{"date":"2016-10","index":199.92998510447995},{"date":"2016-11","index":208.2942675248109},{"date":"2016-12","index":209.8665580439319},{"date":"2017-01","index":205.60746635085172},{"date":"2017-02","index":218.56807092976885},{"date":"2017-03","index":218.80427770954012},{"date":"2017-04","index":219.73597948758297},{"date":"2017-05","index":220.0749951048917},{"date":"2017-06","index":215.39962661084337},{"date":"2017-07","index":211.48142971572778},{"date":"2017-08","index":208.41206861284797},{"date":"2017-09","index":218.168329186656},{"date":"2017-10","index":227.76922773797938},{"date":"2017-11","index":231.49643962723582},{"date":"2017-12","index":232.92984413592333},{"date":"2018-01","index":233.28611562517995},{"date":"2018-02","index":236.82824428624568},{"date":"2018-03","index":232.49525798737406},{"date":"2018-04","index":246.62507949116795},{"date":"2018-05","index":249.986279857864},{"date":"2018-06","index":255.01644441830987},{"date":"2018-07","index":256.42128869846465},{"date":"2018-08","index":270.5259650876012},{"date":"2018-09","index":264.50296656009186},{"date":"2018-10","index":253.77085497005808},{"date":"2018-11","index":252.8237528566113},{"date":"2018-12","index":230.20459781236252},{"date":"2019-01","index":251.21695152565727},{"date":"2019-02","index":264.0120506778417},{"date":"2019-03","index":268.3895920313377},{"date":"2019-04","index":284.5109799895751},{"date":"2019-05","index":270.99719811374126},{"date":"2019-06","index":279.55575399540777},{"date":"2019-07","index":292.42129917883506},{"date":"2019-08","index":292.3192181574838},{"date":"2019-09","index":297.75863323570337},{"date":"2019-10","index":298.9931706578628},{"date":"2019-11","index":304.8829265532757},{"date":"2019-12","index":308.0212788670789},{"date":"2020-01","index":315.60355402280686},{"date":"2020-02","index":287.4948211160432},{"date":"2020-03","index":265.65102782098086},{"date":"2020-04","index":280.80729233668984},{"date":"2020-05","index":283.0315063991993},{"date":"2020-06","index":288.06329898149363},{"date":"2020-07","index":281.3743568336748},{"date":"2020-08","index":298.30378437862333},{"date":"2020-09","index":302.6620270445941},{"date":"2020-10","index":288.61431530863683},{"date":"2020-11","index":310.5862388848299},{"date":"2020-12","index":312.0817171848179},{"date":"2021-01","index":315.80485541230547},{"date":"2021-02","index":326.8230078337947},{"date":"2021-03","index":350.32664800772125},{"date":"2021-04","index":354.5394594164087},{"date":"2021-05","index":351.98519287984226},{"date":"2021-06","index":368.3003086246914},{"date":"2021-07","index":377.86354298428006},{"date":"2021-08","index":388.7025122184827},{"date":"2021-09","index":381.4036982838377},{"date":"2021-10","index":391.8392515353042},{"date":"2021-11","index":408.2237831879968},{"date":"2021-12","index":423.09077228030156},{"date":"2022-01","index":409.385640482056},{"date":"2022-02","index":406.8509273631066},{"date":"2022-03","index":415.1043083917252},{"date":"2022-04","index":402.6816094335452},{"date":"2022-05","index":396.6597523639368},{"date":"2022-06","index":379.401957134981},{"date":"2022-07","index":404.98043770014425},{"date":"2022-08","index":408.4169665117054},{"date":"2022-09","index":393.18842309038706},{"date":"2022-10","index":411.08962877402854},{"date":"2022-11","index":413.5945476257562},{"date":"2022-12","index":396.6849678889666},{"date":"2023-01","index":424.49468167991614},{"date":"2023-02","index":416.852854251772},{"date":"2023-03","index":425.25999830888867},{"date":"2023-04","index":429.0481801508349},{"date":"2023-05","index":450.21125483749177},{"date":"2023-06","index":474.7145809870136},{"date":"2023-07","index":476.95496661107387},{"date":"2023-08","index":484.5252970040665},{"date":"2023-09","index":464.20539633245835},{"date":"2023-10","index":459.6559489843198},{"date":"2023-11","index":470.1975600165743},{"date":"2023-12","index":475.41707909387634},{"date":"2024-01","index":499.1347812624017},{"date":"2024-02","index":515.2020949550732},{"date":"2024-03","index":548.9765242284998},{"date":"2024-04","index":548.3527159467942},{"date":"2024-05","index":539.7038303507499},{"date":"2024-06","index":563.1860566733616},{"date":"2024-07","index":576.8665300919708},{"date":"2024-08","index":561.6773883659367},{"date":"2024-09","index":567.3578761860771},{"date":"2024-10","index":591.0910773002921},{"date":"2024-11","index":628.7510056772998},{"date":"2024-12","index":618.2785106325586},{"date":"2025-01","index":646.519217797217},{"date":"2025-02","index":614.9324901693333},{"date":"2025-03","index":549.1326760635463},{"date":"2025-04","index":533.5147960266074},{"date":"2025-05","index":562.4361198338804},{"date":"2025-06","index":581.4746223499886},{"date":"2025-07","index":610.1469397111945},{"date":"2025-08","index":602.209716963412},{"date":"2025-09","index":617.3220824857638},{"date":"2025-10","index":636.3833362906317},{"date":"2025-11","index":636.8614385751198},{"date":"2025-12","index":630.0162671809804}];
+const historicalStats=[{"initial_sek":300000,"horizon_years":1,"wins":140,"windows":158,"win_pct":88.60759493670885,"median_gap":11792.771680032514},{"initial_sek":300000,"horizon_years":3,"wins":138,"windows":138,"win_pct":100.0,"median_gap":39313.64058818814},{"initial_sek":300000,"horizon_years":5,"wins":118,"windows":118,"win_pct":100.0,"median_gap":73969.71036441493},{"initial_sek":300000,"horizon_years":10,"wins":69,"windows":69,"win_pct":100.0,"median_gap":198701.2943773506},{"initial_sek":300000,"horizon_years":12,"wins":49,"windows":49,"win_pct":100.0,"median_gap":268152.4431206109}];
+const historicalOverall={"wins": 2055, "windows": 2128, "win_pct": 96.56954887218046};
+const gridHistoricalWin={wins:42,total:63};
+const slides=[...document.querySelectorAll('.slide')];
+let slideIndex=0;
+function showSlide(n){slideIndex=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===slideIndex));document.getElementById('counter').textContent=`${slideIndex+1} / ${slides.length}`;document.getElementById('progress').style.width=`${(slideIndex+1)/slides.length*100}%`;if(slideIndex===5)drawHistory();if(slideIndex===6)drawHistoryWins();if(slideIndex===7)updateScenario();if(slideIndex===8)drawHeatmap();if(slideIndex===10)updateMoveScenario();}
+document.getElementById('prev').onclick=()=>showSlide(slideIndex-1);document.getElementById('next').onclick=()=>showSlide(slideIndex+1);
+document.getElementById('notesToggle').onclick=()=>document.body.classList.toggle('notes-on');
+document.getElementById('fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.querySelector('.deck').requestFullscreen?.();
+document.addEventListener('keydown',e=>{if(e.target.matches('input,button,select,textarea'))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();showSlide(slideIndex+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();showSlide(slideIndex-1)}});
+function canvas(id){const c=document.getElementById(id);if(!c)return null;const r=c.getBoundingClientRect();if(r.width<10||r.height<10)return null;const d=window.devicePixelRatio||1;c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return{x,w:r.width,h:r.height}}
+function drawLine(id,data,color,options={}){const b=canvas(id);if(!b)return;const{ x:ctx,w,h}=b;const m={l:54,r:18,t:12,b:34};const pw=w-m.l-m.r,ph=h-m.t-m.b;ctx.clearRect(0,0,w,h);const vals=data.map(d=>d.y);const lo=options.min??Math.floor(Math.min(...vals)/100)*100,hi=options.max??Math.ceil(Math.max(...vals)/100)*100;ctx.font='12px system-ui';ctx.strokeStyle='#29344c';ctx.fillStyle='#9ca8bd';ctx.lineWidth=1;for(let i=0;i<=4;i++){const y=m.t+ph*i/4;ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke();const v=hi-(hi-lo)*i/4;ctx.fillText(options.money?`$${v}`:String(Math.round(v)),5,y+4)}ctx.strokeStyle=color;ctx.lineWidth=3;ctx.lineJoin='round';ctx.beginPath();data.forEach((d,i)=>{const px=m.l+pw*i/(data.length-1),py=m.t+ph*(hi-d.y)/(hi-lo);i?ctx.lineTo(px,py):ctx.moveTo(px,py)});ctx.stroke();for(let i=0;i<data.length;i++){if(data.length>40&&i%12!==0&&i!==data.length-1)continue;const px=m.l+pw*i/(data.length-1);ctx.fillStyle='#9ca8bd';ctx.fillText(data[i].x,m.l+pw*i/(data.length-1)-14,h-7)}if(options.endLabel){ctx.fillStyle=color;ctx.font='bold 14px system-ui';ctx.fillText(options.endLabel,w-m.r-80,m.t+14)}}
+function drawHistory(){drawLine('historyChart',historicalData.map(d=>({x:d.date.slice(0,4),y:d.index})), '#73e0c3',{min:0,max:700});}
+function drawHistoryWins(){const b=canvas('historyWinChart');if(!b)return;const{ x:ctx,w,h}=b;const rows=historicalStats.filter(d=>d.initial_sek===300000).sort((a,b)=>a.horizon_years-b.horizon_years);const m={l:65,r:25,t:15,b:40};const ph=h-m.t-m.b,pw=w-m.l-m.r;ctx.clearRect(0,0,w,h);ctx.font='12px system-ui';ctx.fillStyle='#aab2c4';for(let t=0;t<=100;t+=25){const y=m.t+ph*(1-t/100);ctx.strokeStyle='#29344c';ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke();ctx.fillText(`${t}%`,14,y+4)}const bw=pw/rows.length*.55;rows.forEach((r,i)=>{const cx=m.l+pw*(i+.5)/rows.length;const bh=ph*r.win_pct/100;ctx.fillStyle='#73e0c3';ctx.fillRect(cx-bw/2,m.t+ph-bh,bw,bh);ctx.fillStyle='#f4f2ec';ctx.font='bold 13px system-ui';ctx.textAlign='center';ctx.fillText(`${r.win_pct.toFixed(1)}%`,cx,m.t+ph-bh-7);ctx.fillStyle='#aab2c4';ctx.font='12px system-ui';ctx.fillText(`${r.horizon_years}y`,cx,h-12);ctx.textAlign='left'})}
+// Forward scenario calculations mirror the notebook's monthly price path and annual tax rules.
+const iskRate=0.0355,allowance=300000,capTax=.30,divTax=.30,lossRelief=.21,fundTax=.004*.30;
+function monthEnd(i){return new Date(Date.UTC(2026,i+1,0))}
+function taxRegular(value,basis,taxDue){value=Math.max(0,value);basis=Math.max(0,basis);if(taxDue<=0||value<=0)return{value,basis,realized:0,unpaid:taxDue};const g=(value-basis)/value;const actual=g>=0?g*capTax:g*lossRelief;const taxPer=Math.min(actual,.8*capTax);const sale=Math.min(value,taxDue/(1-taxPer));const removed=basis*sale/value;const realized=sale*taxPer;return{value:value-sale,basis:basis-removed,realized,unpaid:Math.max(0,taxDue-(sale-realized))}}
+function simulate(ret,years,initial,monthly,yieldRate,keepPath=false){const count=years*12+1,start=monthEnd(0),path=[];for(let i=0;i<count;i++){const date=monthEnd(i);const elapsed=(date-start)/86400000/365.25;path.push({date,price:100*Math.pow(1+ret,elapsed)})}let iu=initial/path[0].price,ru=iu,basis=initial,iskTaxes=0,regFund=0,regDiv=0,regSale=0,regUnpaid=0,iskUnpaid=0,dep={2026:initial},vals=new Map(),yearVals={},timeline=[];for(let i=0;i<path.length;i++){const p=path[i],yr=p.date.getUTCFullYear();if(i>0&&monthly){iu+=monthly/p.price;ru+=monthly/p.price;basis+=monthly;dep[yr]=(dep[yr]||0)+monthly}let iv=iu*p.price,rv=ru*p.price;vals.set(+p.date,{isk:iv,regular:rv});(yearVals[yr]||(yearVals[yr]=[])).push(rv);const yearEnd=i===path.length-1||path[i+1].date.getUTCFullYear()!==yr;if(yearEnd){const q=[1,4,7,10].map(mon=>{const qstart=Date.UTC(yr,mon-1,1);if(qstart>+path[path.length-1].date)return 0;let prior=null;for(let j=0;j<=i;j++){if(+path[j].date<qstart)prior=path[j];else break}if(!prior||+prior.date<+start)return 0;return(vals.get(+prior.date)||{}).isk||0});const base=(q.reduce((a,b)=>a+b,0)+(dep[yr]||0))/4;const iskTax=Math.max(0,base-allowance)*iskRate*capTax;iv=iu*p.price;const paid=Math.min(iv,iskTax);iu=Math.max(0,iv-paid)/p.price;iskUnpaid+=Math.max(0,iskTax-paid);iskTaxes+=iskTax;rv=ru*p.price;const q1=Date.UTC(yr,0,1);let janPrior=null;for(let j=0;j<=i;j++){if(+path[j].date<q1)janPrior=path[j];else break}const jan=(!janPrior||+janPrior.date<+start)?0:((vals.get(+janPrior.date)||{}).regular||0);const ft=jan*fundTax;const grossDiv=(yearVals[yr].reduce((a,b)=>a+b,0)/12)*yieldRate;const dt=grossDiv*divTax;basis+=grossDiv*(1-divTax);const adj=taxRegular(rv,basis,ft+dt);ru=adj.value/p.price;basis=adj.basis;regSale+=adj.realized;regUnpaid+=adj.unpaid;regFund+=ft;regDiv+=dt;vals.set(+p.date,{isk:iu*p.price,regular:ru*p.price});timeline.push({year:yr,date:p.date,isk:iu*p.price,regular:ru*p.price,tax:iskTax})}}const end=path[path.length-1];const iv=iu*end.price,rv=ru*end.price,gain=rv-basis,actual=gain>=0?gain*capTax:gain*lossRelief,schablon=rv*.8*capTax,finalTax=Math.min(actual,schablon),af=rv-finalTax-regUnpaid,isk=iv-iskUnpaid;return{isk,af,iskNoSale:iv-iskUnpaid,regularNoSale:rv-regUnpaid,diff:isk-af,total:dep,iskTaxes,regularTaxes:regFund+regDiv+regSale+finalTax,regularFund:regFund,regularDiv:regDiv,finalTax,timeline,path,years,ret,initial,monthly,yieldRate}}
+const controls={initial:document.getElementById('initial'),monthly:document.getElementById('monthly'),ret:document.getElementById('return'),years:document.getElementById('years'),yield:document.getElementById('yield')};
+function money(v){return 'SEK '+Math.round(v).toLocaleString('en-US')}
+function updateScenario(){const initial=+controls.initial.value,monthly=+controls.monthly.value,ret=+controls.ret.value/100,years=+controls.years.value,yieldRate=+controls.yield.value/100;document.getElementById('initialOut').textContent=money(initial);document.getElementById('monthlyOut').textContent=money(monthly);document.getElementById('returnOut').textContent=`${ret>=0?'+':''}${(ret*100).toFixed(1)}%`;document.getElementById('yearsOut').textContent=`${years} years`;document.getElementById('yieldOut').textContent=`${(yieldRate*100).toFixed(1)}%`;const r=simulate(ret,years,initial,monthly,yieldRate);const winner=Math.abs(r.diff)<1?'About even':r.diff>0?'ISK ends higher':'Ordinary account ends higher';document.getElementById('winner').textContent=winner;document.getElementById('gapValue').textContent=`${r.diff>=0?'+':''}${money(r.diff)} difference`;document.getElementById('gapValue').style.color=r.diff>=0?'var(--teal)':'var(--gold)';document.getElementById('scenarioSummary').textContent=`ISK ${money(r.isk)} after tax · Ordinary account ${money(r.af)} after tax · Total contributions ${money(r.total)}`;const points=[];for(let y=1;y<=years;y++){const v=simulate(ret,y,initial,monthly,yieldRate);points.push({x:`${y}y`,isk:v.isk,af:v.af})}drawScenarioChart(points);}
+function drawScenarioChart(data,target='scenarioChart'){const b=canvas(target);if(!b)return;const{ x:ctx,w,h}=b;const m={l:70,r:18,t:12,b:32},pw=w-m.l-m.r,ph=h-m.t-m.b;ctx.clearRect(0,0,w,h);const max=Math.max(1,...data.flatMap(d=>[d.isk,d.af]))*1.07;ctx.font='11px system-ui';for(let t=0;t<=4;t++){const y=m.t+ph*t/4;ctx.strokeStyle='#29344c';ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke();ctx.fillStyle='#aab2c4';ctx.fillText(money(max*(1-t/4)).replace('SEK ','') ,4,y+4)}const line=(key,color)=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=3;data.forEach((d,i)=>{const x=m.l+pw*(i/Math.max(1,data.length-1)),y=m.t+ph*(1-d[key]/max);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()};line('isk','#73e0c3');line('af','#f2bd62');data.forEach((d,i)=>{if(i%Math.max(1,Math.floor(data.length/6))!==0&&i!==data.length-1)return;ctx.fillStyle='#aab2c4';ctx.fillText(d.x,m.l+pw*(i/Math.max(1,data.length-1))-8,h-8)})}
+const moveControls={initial:document.getElementById('moveInitial'),monthly:document.getElementById('moveMonthly'),ret:document.getElementById('moveReturn'),years:document.getElementById('moveYears'),yield:document.getElementById('moveYield')};
+function updateMoveScenario(){const initial=+moveControls.initial.value,monthly=+moveControls.monthly.value,ret=+moveControls.ret.value/100,years=+moveControls.years.value,yieldRate=+moveControls.yield.value/100;document.getElementById('moveInitialOut').textContent=money(initial);document.getElementById('moveMonthlyOut').textContent=money(monthly);document.getElementById('moveReturnOut').textContent=`${ret>=0?'+':''}${(ret*100).toFixed(1)}%`;document.getElementById('moveYearsOut').textContent=`${years} years`;document.getElementById('moveYieldOut').textContent=`${(yieldRate*100).toFixed(1)}%`;const end=simulate(ret,years,initial,monthly,yieldRate),gap=end.iskNoSale-end.regularNoSale;document.getElementById('moveWinner').textContent=Math.abs(gap)<1?'About even at the move date':gap>0?'ISK value is higher at the move date':'Ordinary account value is higher at the move date';document.getElementById('moveGap').textContent=`ISK minus ordinary: ${gap>=0?'+':''}${money(gap)}`;document.getElementById('moveGap').style.color=gap>=0?'var(--teal)':'var(--gold)';document.getElementById('moveSummary').textContent=`ISK ${money(end.iskNoSale)} after annual tax · Ordinary account ${money(end.regularNoSale)} kept invested · Unrealized sale tax excluded`;const points=[];for(let y=1;y<=years;y++){const v=simulate(ret,y,initial,monthly,yieldRate);points.push({x:`${y}y`,isk:v.iskNoSale,af:v.regularNoSale})}drawScenarioChart(points,'moveChart');}
+function drawHeatmap(){const b=canvas('heatmap');if(!b)return;const{ x:ctx,w,h}=b;const rets=[-10,-5,0,3,5,7,10,12,15],horiz=[1,3,5,10,15,20,30],initial=+controls.initial.value,monthly=+controls.monthly.value,yieldRate=+controls.yield.value/100;const data=horiz.map(yrs=>rets.map(ret=>simulate(ret/100,yrs,initial,monthly,yieldRate).diff));const winCount=data.flat().filter(v=>v>0).length;document.getElementById('gridWinSummary').textContent=`ISK wins ${winCount} of ${data.flat().length} tested return/horizon combinations (${(100*winCount/data.flat().length).toFixed(0)}%) at these inputs. This is a grid count, not a probability.`;const max=Math.max(1,...data.flat().map(Math.abs));const m={l:52,r:12,t:32,b:22},cw=(w-m.l-m.r)/rets.length,ch=(h-m.t-m.b)/horiz.length;ctx.clearRect(0,0,w,h);ctx.font='11px system-ui';ctx.fillStyle='#c1cad9';ctx.textAlign='center';rets.forEach((r,j)=>ctx.fillText(`${r}%`,m.l+cw*(j+.5),17));horiz.forEach((yr,i)=>{ctx.textAlign='right';ctx.fillStyle='#c1cad9';ctx.fillText(`${yr}y`,m.l-9,m.t+ch*(i+.5)+4);rets.forEach((r,j)=>{const v=data[i][j],t=Math.min(1,Math.abs(v)/max),green=v>=0;const col=green?`rgba(35,176,132,${.22+.72*t})`:`rgba(211,88,83,${.22+.72*t})`;ctx.fillStyle=col;ctx.fillRect(m.l+cw*j+1,m.t+ch*i+1,cw-2,ch-2);ctx.fillStyle=t>.65?'#fff':'#f0f2f7';ctx.font=`${Math.max(9,Math.min(13,cw/6))}px system-ui`;ctx.textAlign='center';ctx.fillText(`${v>=0?'+':''}${Math.round(v/1000)}k`,m.l+cw*(j+.5),m.t+ch*(i+.5)+4)})});ctx.textAlign='left';document.getElementById('heatInputs').textContent=`${money(initial)} initial · ${money(monthly)}/month · ${(yieldRate*100).toFixed(1)}% yield`;b.onclick=e=>{const rect=b.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,marg={l:52,r:12,t:32,b:22},j=Math.floor((x-marg.l)/((rect.width-marg.l-marg.r)/rets.length)),i=Math.floor((y-marg.t)/((rect.height-marg.t-marg.b)/horiz.length));if(i>=0&&i<horiz.length&&j>=0&&j<rets.length){controls.ret.value=rets[j];controls.years.value=horiz[i];updateScenario();showSlide(7)}}}
+Object.values(controls).forEach(el=>el.addEventListener('input',()=>{updateScenario();if(slideIndex===8)drawHeatmap()}));Object.values(moveControls).forEach(el=>el.addEventListener('input',updateMoveScenario));window.addEventListener('resize',()=>{if(slideIndex===5)drawHistory();if(slideIndex===6)drawHistoryWins();if(slideIndex===7)updateScenario();if(slideIndex===8)drawHeatmap();if(slideIndex===10)updateMoveScenario()});
+showSlide(0);
+</script>
+</body>
+</html>
